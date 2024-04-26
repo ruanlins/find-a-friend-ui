@@ -1,6 +1,7 @@
 import Button from '@/components/form/button';
 import { Input } from '@/components/form/input';
 import { useForm } from 'react-hook-form';
+import * as Separator from '@radix-ui/react-separator';
 
 function handleForm(data: Form) {
   console.log(data);
@@ -62,7 +63,7 @@ export function Register() {
             placeholder="Confirme sua senha"
             register={register}
           />
-          {/* separator do radix */}
+          <Separator.Root className="bg-blue-950 opacity-70 w-full h-[1px]" />
           <Input
             name="adress"
             label="Endereço com número"
@@ -70,7 +71,6 @@ export function Register() {
             placeholder="Digite aqui seu endereço"
             register={register}
           />
-          {/* input de estado */}
           <Input
             name="whatsapp"
             label="Whatsapp"
