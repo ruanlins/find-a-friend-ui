@@ -2,6 +2,7 @@ import Button from '@/components/form/button';
 import { Input } from '@/components/form/input';
 import { useForm } from 'react-hook-form';
 import * as Separator from '@radix-ui/react-separator';
+import { StateSelect } from '@/components/form/state-select';
 
 function handleForm(data: Form) {
   console.log(data);
@@ -20,7 +21,7 @@ export function Register() {
   } = useForm<Form>();
 
   return (
-    <div className="h-[600px] w-[488px] flex flex-col mt-20 space-y-14 ">
+    <div className="w-[488px] flex flex-col mb-20 space-y-14 ">
       <h1 className="font-bold text-6xl text-blue-950  text-center">
         Cadastre sua organização
       </h1>
@@ -71,11 +72,12 @@ export function Register() {
             placeholder="Digite aqui seu endereço"
             register={register}
           />
+          <StateSelect />
           <Input
             name="whatsapp"
             label="Whatsapp"
             type="number"
-            placeholder="Digite aqui seu endereço"
+            placeholder="Digite aqui seu WhatsApp"
             register={register}
           />
         </div>
