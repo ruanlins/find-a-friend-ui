@@ -1,7 +1,7 @@
 import Button from "@/components/form/button";
 import { Input } from "@/components/form/input";
 import { SelectOptions } from "@/components/form/select";
-import { petAge, petEnergy, petSize } from "@/utils/petOptions";
+import { petAge, petEnergy, petSize, petSpace } from "@/utils/petOptions";
 import { Separator } from "@radix-ui/react-separator";
 import { useForm } from "react-hook-form";
 
@@ -10,7 +10,7 @@ export function RegisterPet() {
     console.log(data);
   }
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
   return (
     <div className="w-[650px] rounded-xl bg-white p-10">
       <div>
@@ -38,7 +38,8 @@ export function RegisterPet() {
         <div>
           <label className="block font-semibold text-blue-950">Idade</label>
           <SelectOptions
-            ariaLabel="Idade"
+            control={control}
+            name="age"
             placeholder="Informe a idade do pet"
             options={petAge}
           />
@@ -46,7 +47,8 @@ export function RegisterPet() {
         <div>
           <label className="block font-semibold text-blue-950">Porte</label>
           <SelectOptions
-            ariaLabel="Porte"
+            control={control}
+            name="size"
             placeholder="Informe o porte do pet"
             options={petSize}
           />
@@ -54,7 +56,8 @@ export function RegisterPet() {
         <div>
           <label className="block font-semibold text-blue-950">Energia</label>
           <SelectOptions
-            ariaLabel="Energia"
+            control={control}
+            name="energy"
             placeholder="Informe a energia do pet"
             options={petEnergy}
           />
@@ -67,7 +70,8 @@ export function RegisterPet() {
             </span>
           </label>
           <SelectOptions
-            ariaLabel="Independência"
+            control={control}
+            name="independence"
             placeholder="Informe a independência do pet"
             options={petEnergy}
           />
@@ -75,12 +79,13 @@ export function RegisterPet() {
         <div>
           <label className="block font-semibold text-blue-950 ">Ambiente</label>
           <SelectOptions
-            ariaLabel="Ambiente"
-            placeholder="Informe o tamanho de espaço adequado para o pet"
-            options={petEnergy}
+            control={control}
+            name="space"
+            placeholder="Informe o espaço necessário"
+            options={petSpace}
           />
         </div>
-        <Button className="h-16 w-full rounded-xl bg-yellow-400 font-bold text-blue-900 ">
+        <Button className="h-16 w-full rounded-xl bg-yellow-400 font-bold text-blue-950 ">
           Confirmar
         </Button>
       </form>

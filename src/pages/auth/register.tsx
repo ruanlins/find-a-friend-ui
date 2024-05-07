@@ -1,8 +1,8 @@
 import Button from "@/components/form/button";
 import { Input } from "@/components/form/input";
-import { useForm } from "react-hook-form";
 import * as Separator from "@radix-ui/react-separator";
 import { SelectOptions } from "@/components/form/select";
+import { useForm } from "react-hook-form";
 import { allStates } from "@/utils/allStates";
 
 function handleForm(data: Form) {
@@ -10,14 +10,20 @@ function handleForm(data: Form) {
 }
 
 interface Form {
+  orgName: string;
+  managerName: string;
   email: string;
   password: string;
+  adress: string;
+  state: { value: string; label: string };
+  whatsapp: string;
 }
 
 export function Register() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { isSubmitting },
   } = useForm<Form>();
 
@@ -36,7 +42,7 @@ export function Register() {
             register={register}
           />
           <Input
-            name="text"
+            name="manager"
             label="Nome do responsável"
             type="text"
             placeholder="Digite aqui seu nome completo"
@@ -72,8 +78,9 @@ export function Register() {
             register={register}
           />
           <SelectOptions
-            ariaLabel="Estados"
-            placeholder="Indique seu estado"
+            name="state"
+            control={control}
+            placeholder="Informe seu Estado"
             options={allStates}
           />
           <Input
