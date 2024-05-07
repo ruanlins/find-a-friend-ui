@@ -1,13 +1,10 @@
 import { EnergyCard } from "@/components/pet-page/energy-card";
 import { SizeCard } from "@/components/pet-page/size-card";
 import { SpaceCard } from "@/components/pet-page/space-card";
-import { useParams } from "react-router-dom";
 import Logo from "../../assets/logo-simplified.svg?react";
 import WhatsApp from "../../assets/whatsapp.svg?react";
 
 export function PetInfo() {
-  const { petId } = useParams();
-
   return (
     <div className="mt-10 max-w-[700px] rounded-xl bg-white">
       <div className="space-y-8">
