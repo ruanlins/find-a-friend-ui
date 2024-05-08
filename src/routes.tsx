@@ -5,12 +5,17 @@ import { Register } from "./pages/auth/register";
 import { Login } from "./pages/auth/login";
 import { RegisterPet } from "./pages/app/register-pet";
 import { PetInfo } from "./pages/app/pet-info";
+import { SearchPage } from "./pages/app/searchPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
     children: [
+      {
+        path: "/",
+        element: <SearchPage />,
+      },
       {
         path: "/pet/register",
         element: <RegisterPet />,
