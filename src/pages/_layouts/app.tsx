@@ -1,10 +1,14 @@
 import { Header } from "@/components/header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export function AppLayout() {
+  const location = useLocation();
+  const shouldShowHeader =
+    location.pathname !== "/" && location.pathname !== "/feed";
+
   return (
     <div className="flex flex-col items-center">
-      {/* <Header /> */}
+      {shouldShowHeader && <Header />}
       <Outlet />
     </div>
   );
