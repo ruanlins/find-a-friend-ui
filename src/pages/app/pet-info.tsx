@@ -9,38 +9,38 @@ export function PetInfo() {
     <div className="mt-10 max-w-[700px] rounded-xl bg-white">
       <div className="space-y-8">
         <img
-          src="../../../public/Chquinha.jpeg"
+          src="/chiquinha.jpeg"
           className="h-[300px] w-[700px] rounded-t-xl object-cover object-top"
           alt=""
         />
         <div className="flex justify-evenly">
           <img
-            src="../../../public/Chquinha.jpeg"
+            src="/chiquinha.jpeg"
             className="h-[80px] w-[80px] rounded-xl object-cover"
             alt=""
           />
           <img
-            src="../../../public/Chquinha.jpeg"
+            src="/chiquinha.jpeg"
             className="h-[80px] w-[80px] rounded-xl object-cover"
             alt=""
           />
           <img
-            src="../../../public/Chquinha.jpeg"
+            src="/chiquinha.jpeg"
             className="h-[80px] w-[80px] rounded-xl object-cover"
             alt=""
           />
           <img
-            src="../../../public/Chquinha.jpeg"
+            src="/chiquinha.jpeg"
             className="h-[80px] w-[80px] rounded-xl object-cover"
             alt=""
           />
           <img
-            src="../../../public/Chquinha.jpeg"
+            src="/chiquinha.jpeg"
             className="h-[80px] w-[80px] rounded-xl object-cover"
             alt=""
           />
           <img
-            src="../../../public/Chquinha.jpeg"
+            src="/chiquinha.jpeg"
             className="h-[80px] w-[80px] rounded-xl object-cover"
             alt=""
           />

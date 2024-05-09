@@ -7,7 +7,7 @@ export function AppLayout() {
     location.pathname !== "/" && location.pathname !== "/feed";
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center space-y-2 bg-red-100">
       {shouldShowHeader && <Header />}
       <Outlet />
     </div>
