@@ -65,7 +65,7 @@ export function SearchPage() {
           />
           <button
             onClick={handleClick}
-            className="rounded-lg bg-yellow-500 p-4"
+            className="rounded-2xl bg-yellow-500 p-4"
           >
             <Search />
           </button>
