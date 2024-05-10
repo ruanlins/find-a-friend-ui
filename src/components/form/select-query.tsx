@@ -1,10 +1,48 @@
-import Select from "react-select";
+import Select, { StylesConfig } from "react-select";
 
 interface SelectQueryProps {
   options: { value: string; label: string }[];
   placeholder: string;
   name: string;
 }
+
+const style: StylesConfig = {
+  singleValue: (baseStyles) => ({
+    ...baseStyles,
+    color: "#FFF",
+  }),
+  placeholder: (baseStyles) => ({
+    ...baseStyles,
+    color: "#FFF",
+    opacity: "0.5",
+  }),
+  container: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: "#f87171",
+    borderRadius: "10px",
+    color: "#FFF",
+    fontSize: "16px",
+  }),
+  menu: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: "#ef4444",
+    color: "#FFF",
+  }),
+  option: (baseStyles) => ({
+    ...baseStyles,
+    color: "#000",
+  }),
+  control: (baseStyles) => ({
+    ...baseStyles,
+    fontSize: "24x",
+    fontWeight: "bold",
+    backgroundColor: "transparent",
+    height: "56px",
+    borderRadius: "8px",
+    outline: "none",
+    border: "none",
+  }),
+};
 
 export function SelectQuery({ options, placeholder, name }: SelectQueryProps) {
   return (
@@ -16,42 +54,7 @@ export function SelectQuery({ options, placeholder, name }: SelectQueryProps) {
       className="w-full"
       name={name}
       placeholder={placeholder}
-      styles={{
-        singleValue: (baseStyles) => ({
-          ...baseStyles,
-          color: "#FFF",
-        }),
-        placeholder: (baseStyles) => ({
-          ...baseStyles,
-          color: "#FFF",
-        }),
-        container: (baseStyles) => ({
-          ...baseStyles,
-          backgroundColor: "#f87171",
-          borderRadius: "10px",
-          color: "#FFF",
-          fontSize: "16px",
-        }),
-        menu: (baseStyles) => ({
-          ...baseStyles,
-          backgroundColor: "#ef4444",
-          color: "#FFF",
-        }),
-        option: (baseStyles) => ({
-          ...baseStyles,
-          color: "#000",
-        }),
-        control: (baseStyles) => ({
-          ...baseStyles,
-          fontSize: "24x",
-          fontWeight: "bold",
-          backgroundColor: "transparent",
-          height: "56px",
-          borderRadius: "8px",
-          outline: "none",
-          border: "none",
-        }),
-      }}
+      styles={style}
     />
   );
 }
