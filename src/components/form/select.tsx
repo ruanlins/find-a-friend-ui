@@ -1,5 +1,5 @@
 import { Control, Controller } from "react-hook-form";
-import Select from "react-select";
+import Select, { StylesConfig } from "react-select";
 
 export interface SelectOptionsObj {
   value: string;
@@ -12,6 +12,45 @@ interface SelectOptionsProps {
   control: Control<any>;
   name: string;
 }
+
+const style: StylesConfig = {
+  singleValue: (baseStyles) => ({
+    ...baseStyles,
+    color: "#FFF",
+  }),
+  placeholder: (baseStyles) => ({
+    ...baseStyles,
+    color: "#FFF",
+    opacity: "0.5",
+  }),
+  container: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: "#f87171",
+    borderRadius: "10px",
+    color: "#FFF",
+    fontSize: "16px",
+  }),
+  menu: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: "#ef4444",
+    color: "#FFF",
+  }),
+  option: (baseStyles, { isSelected }) => ({
+    ...baseStyles,
+    color: "#FFF",
+    backgroundColor: isSelected ? "#f87171" : "#ef4444",
+  }),
+  control: (baseStyles) => ({
+    ...baseStyles,
+    fontSize: "24x",
+    fontWeight: "bold",
+    backgroundColor: "transparent",
+    height: "56px",
+    borderRadius: "8px",
+    outline: "none",
+    border: "none",
+  }),
+};
 
 export function SelectOptions({
   control,
@@ -33,18 +72,7 @@ export function SelectOptions({
             options={options}
             placeholder={placeholder}
             name={name}
-            styles={{
-              control: (baseStyles, state) => ({
-                ...baseStyles,
-                backgroundColor: "#e2e8f0",
-                height: "56px",
-                borderRadius: "8px",
-                color: "#000",
-                fontSize: "16px",
-                outline: "none",
-                borderColor: state.isFocused ? "#172554" : "transparent",
-              }),
-            }}
+            styles={style}
           />
         );
       }}
