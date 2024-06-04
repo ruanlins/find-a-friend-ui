@@ -28,9 +28,10 @@ const style: StylesConfig = {
     backgroundColor: "#ef4444",
     color: "#FFF",
   }),
-  option: (baseStyles) => ({
+  option: (baseStyles, { isFocused }) => ({
     ...baseStyles,
-    color: "#000",
+    color: "#FFF",
+    backgroundColor: isFocused ? "#f87171" : "",
   }),
   control: (baseStyles) => ({
     ...baseStyles,
