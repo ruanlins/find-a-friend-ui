@@ -4,6 +4,7 @@ interface SelectQueryProps {
   options: { value: string; label: string }[];
   placeholder: string;
   name: string;
+  onChange?: (event: any) => { label: string; value: string } | null;
 }
 
 const style: StylesConfig = {
@@ -45,9 +46,15 @@ const style: StylesConfig = {
   }),
 };
 
-export function SelectQuery({ options, placeholder, name }: SelectQueryProps) {
+export function SelectQuery({
+  options,
+  placeholder,
+  name,
+  onChange,
+}: SelectQueryProps) {
   return (
     <Select
+      onChange={onChange}
       components={{
         IndicatorSeparator: () => null,
       }}
