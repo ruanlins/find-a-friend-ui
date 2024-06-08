@@ -2,7 +2,8 @@ import Logo from "@/assets/logo.svg?react";
 import Dogs from "@/assets/dogs.svg?react";
 import Search from "@/assets/search.svg?react";
 import { allStates } from "@/utils/allStates";
-import { SelectQuery } from "@/components/form/select-query";
+import { Link } from "react-router-dom";
+import { SelectRadix } from "@/components/form/select-radix";
 
 export function SearchPage() {
   return (
@@ -18,10 +19,10 @@ export function SearchPage() {
         <Dogs className="col-start-2 row-start-2 justify-self-end" />
         <div className="col-start-2 row-start-3 flex items-center gap-5 justify-self-end">
           <span className="block">busque um amigo:</span>
-          <SelectQuery options={allStates} name="state" placeholder="Estado" />
-          <button className="rounded-2xl bg-yellow-500 p-4">
+          <SelectRadix options={allStates} placeholder="Selecione um estado" />
+          <Link to="/feed" className="rounded-2xl bg-yellow-500 p-4">
             <Search />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
