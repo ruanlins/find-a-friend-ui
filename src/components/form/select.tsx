@@ -1,81 +1,49 @@
-import { Control, Controller } from "react-hook-form";
-import Select, { StylesConfig } from "react-select";
+import * as Select from "@radix-ui/react-select";
+import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 
-export interface SelectOptionsObj {
-  value: string;
-  label: string;
-}
-
-interface SelectOptionsProps {
+interface SelectProps {
   options: { value: string; label: string }[];
   placeholder: string;
-  control: Control<any>;
-  name: string;
+  onValueChange: () => void;
+  value: string;
 }
 
-const style: StylesConfig = {
-  singleValue: (baseStyles) => ({
-    ...baseStyles,
-    color: "#FFF",
-  }),
-  placeholder: (baseStyles) => ({
-    ...baseStyles,
-    color: "#FFF",
-    opacity: "0.5",
-  }),
-  container: (baseStyles) => ({
-    ...baseStyles,
-    backgroundColor: "#f87171",
-    borderRadius: "10px",
-    color: "#FFF",
-    fontSize: "16px",
-  }),
-  menu: (baseStyles) => ({
-    ...baseStyles,
-    backgroundColor: "#ef4444",
-    color: "#FFF",
-  }),
-  option: (baseStyles, { isSelected }) => ({
-    ...baseStyles,
-    color: "#FFF",
-    backgroundColor: isSelected ? "#f87171" : "#ef4444",
-  }),
-  control: (baseStyles) => ({
-    ...baseStyles,
-    fontSize: "24x",
-    fontWeight: "bold",
-    backgroundColor: "transparent",
-    height: "56px",
-    borderRadius: "8px",
-    outline: "none",
-    border: "none",
-  }),
-};
-
-export function SelectOptions({
-  control,
+export function SelectRadix({
   options,
   placeholder,
-  name,
-}: SelectOptionsProps) {
+  onValueChange,
+}: SelectProps) {
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field: { onChange, value, name } }) => {
-        return (
-          <Select
-            value={options.find((option) => option.value === value)}
-            onChange={(selectedOption: SelectOptionsObj) => {
-              onChange(selectedOption.value);
-            }}
-            options={options}
-            placeholder={placeholder}
-            name={name}
-            styles={style}
-          />
-        );
-      }}
-    />
+    <Select.Root onValueChange={onValueChange}>
+      <Select.Trigger className="h-14 w-48 rounded-lg bg-red-400 ">
+        <Select.Value placeholder={placeholder} />
+        <Select.Icon asChild>
+          <ChevronDownIcon className="inline-block size-7 pb-1" />
+        </Select.Icon>
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Content
+          align="center"
+          className="w-full rounded-lg bg-red-400 p-2 text-center text-white"
+          position="popper"
+        >
+          <Select.ScrollUpButton />
+          <Select.Viewport className="max-h-48 space-y-1">
+            {options.map((option) => {
+              return (
+                <Select.Item key={option.value} value={option.value}>
+                  <Select.ItemText>{option.label}</Select.ItemText>
+                  <Select.ItemIndicator>
+                    <CheckIcon className="inline-block size-6 pb-1" />
+                  </Select.ItemIndicator>
+                </Select.Item>
+              );
+            })}
+          </Select.Viewport>
+          <Select.ScrollDownButton />
+          <Select.Arrow />
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 }
