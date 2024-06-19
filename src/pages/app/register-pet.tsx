@@ -1,6 +1,6 @@
 import Button from "@/components/form/button";
 import { Input } from "@/components/form/input";
-import { SelectOptions } from "@/components/form/select";
+import { SelectRadix } from "@/components/form/select";
 import { petAge, petEnergy, petSize, petSpace } from "@/utils/petOptions";
 import { Separator } from "@radix-ui/react-separator";
 import { useForm } from "react-hook-form";
@@ -37,27 +37,15 @@ export function RegisterPet() {
         </div>
         <div>
           <label className="block font-semibold text-blue-950">Idade</label>
-          <SelectOptions
-            control={control}
-            name="age"
-            placeholder="Informe a idade do pet"
-            options={petAge}
-          />
+          <SelectRadix placeholder="Informe a idade do pet" options={petAge} />
         </div>
         <div>
           <label className="block font-semibold text-blue-950">Porte</label>
-          <SelectOptions
-            control={control}
-            name="size"
-            placeholder="Informe o porte do pet"
-            options={petSize}
-          />
+          <SelectRadix placeholder="Informe o porte do pet" options={petSize} />
         </div>
         <div>
           <label className="block font-semibold text-blue-950">Energia</label>
-          <SelectOptions
-            control={control}
-            name="energy"
+          <SelectRadix
             placeholder="Informe a energia do pet"
             options={petEnergy}
           />
@@ -69,18 +57,14 @@ export function RegisterPet() {
               O quanto ele precisa de companhia
             </span>
           </label>
-          <SelectOptions
-            control={control}
-            name="independence"
+          <SelectRadix
             placeholder="Informe a independência do pet"
             options={petEnergy}
           />
         </div>
         <div>
           <label className="block font-semibold text-blue-950 ">Ambiente</label>
-          <SelectOptions
-            control={control}
-            name="space"
+          <SelectRadix
             placeholder="Informe o espaço necessário"
             options={petSpace}
           />

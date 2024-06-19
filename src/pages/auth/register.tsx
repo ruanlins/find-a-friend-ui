@@ -1,7 +1,7 @@
 import Button from "@/components/form/button";
 import { Input } from "@/components/form/input";
 import * as Separator from "@radix-ui/react-separator";
-import { SelectOptions } from "@/components/form/select";
+import { SelectRadix } from "@/components/form/select";
 import { useForm } from "react-hook-form";
 import { allStates } from "@/utils/allStates";
 
@@ -77,7 +77,7 @@ export function Register() {
             placeholder="Digite aqui seu endereço"
             register={register}
           />
-          <SelectOptions
+          <SelectRadix
             name="state"
             control={control}
             placeholder="Informe seu Estado"

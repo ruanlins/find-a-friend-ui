@@ -1,6 +1,4 @@
-import { SelectOptionsObj } from "@/components/form/select";
-
-export const allStates: SelectOptionsObj[] = [
+export const allStates: { label: string; value: string }[] = [
   { value: "AC", label: "Acre" },
   { value: "AL", label: "Alagoas" },
   { value: "AP", label: "Amapá" },
