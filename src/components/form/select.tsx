@@ -5,7 +5,7 @@ interface SelectProps {
   options: { value: string; label: string }[];
   placeholder: string;
   onValueChange: () => void;
-  value: string;
+  value: string | undefined;
 }
 
 export function SelectRadix({
@@ -24,14 +24,18 @@ export function SelectRadix({
       <Select.Portal>
         <Select.Content
           align="center"
-          className="w-full rounded-lg bg-red-400 p-2 text-center text-white"
+          className="w-48 cursor-pointer rounded-lg border-[1px] border-white bg-red-400 text-center text-white"
           position="popper"
         >
           <Select.ScrollUpButton />
           <Select.Viewport className="max-h-48 space-y-1">
             {options.map((option) => {
               return (
-                <Select.Item key={option.value} value={option.value}>
+                <Select.Item
+                  className="rounded-md hover:bg-red-500 "
+                  key={option.value}
+                  value={option.value}
+                >
                   <Select.ItemText>{option.label}</Select.ItemText>
                   <Select.ItemIndicator>
                     <CheckIcon className="inline-block size-6 pb-1" />

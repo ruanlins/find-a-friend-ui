@@ -47,7 +47,7 @@ export function SearchPage() {
             render={({ field: { value, onChange } }) => {
               return (
                 <SelectRadix
-                  value={value as string}
+                  value={value}
                   onValueChange={onChange}
                   options={allStates}
                   placeholder="Selecione um estado"
