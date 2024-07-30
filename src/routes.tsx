@@ -5,7 +5,7 @@ import { Register } from "./pages/auth/register";
 import { Login } from "./pages/auth/login";
 import { RegisterPet } from "./pages/app/register-pet";
 import { PetInfo } from "./pages/app/pet-info";
-import { SearchPage } from "./pages/app/searchPage";
+import { SearchPage } from "./pages/app/search-page";
 import { PetFeed } from "./pages/app/pet-feed";
 
 export const router = createBrowserRouter([
